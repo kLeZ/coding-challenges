@@ -22,7 +22,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>me.klez</groupId>
 	<artifactId>coding-challenges</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 	<name>Coding Challenges</name>
 	<description>Questo progetto contiene le soluzioni ai vari coding challenges trovati sul sito https://codingchallenges.fyi</description>
