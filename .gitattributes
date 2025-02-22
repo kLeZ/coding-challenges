@@ -41,3 +41,6 @@ gradlew         text eol=lf
 
 # These are explicitly windows files and should use crlf
 *.bat           text eol=crlf
+
+# Custom
+src/test/resources/test.txt text eol=crlf
