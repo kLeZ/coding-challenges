@@ -20,9 +20,7 @@ package me.klez.cc.wc;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-public class ccwc {
-	private static final String USAGE_HELP = "Usage: ccwc (-c | -l | -w | -m) <filename>";
-
+public class Main {
 	public static void main(String[] args) {
 		WordCount wc = new WordCountImpl();
 		switch (args.length) {
@@ -75,7 +73,7 @@ public class ccwc {
 				case "-m" -> System.out.printf("% 8d %s%n", wc.countCharacters(is), filename);
 				default -> System.err.printf("Invalid flag: %s%n", flag);
 			}
-		} catch (Exception e) {
+		} catch (IOException e) {
 			System.err.println(e.getMessage());
 		}
 	}

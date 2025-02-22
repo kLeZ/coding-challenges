@@ -26,6 +26,7 @@
 		<menu name="Documentazione">
 			<item href="introduzione.html" name="Introduzione" />
 			<item href="challenge-1.html" name="Challenge #1" />
+			<item href="challenge-2.html" name="Challenge #2" />
 		</menu>
 		<menu ref="reports" inherit="bottom" />
 	</body>

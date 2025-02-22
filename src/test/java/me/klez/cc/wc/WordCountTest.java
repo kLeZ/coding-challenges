@@ -18,7 +18,7 @@ class WordCountTest {
 
 	@Test
 	void countWords() {
-		try (var is = getClass().getClassLoader().getResourceAsStream("test.txt")) {
+		try (var is = getClass().getClassLoader().getResourceAsStream("wc/test.txt")) {
 			if (is != null) {
 				assertEquals(58164, wc.countWords(is));
 			} else {
@@ -31,7 +31,7 @@ class WordCountTest {
 
 	@Test
 	void countLines() {
-		try (var is = getClass().getClassLoader().getResourceAsStream("test.txt")) {
+		try (var is = getClass().getClassLoader().getResourceAsStream("wc/test.txt")) {
 			if (is != null) {
 				assertEquals(7145, wc.countLines(is));
 			} else {
@@ -44,7 +44,7 @@ class WordCountTest {
 
 	@Test
 	void countCharacters() {
-		try (var is = getClass().getClassLoader().getResourceAsStream("test.txt")) {
+		try (var is = getClass().getClassLoader().getResourceAsStream("wc/test.txt")) {
 			if (is != null) {
 				assertEquals(339292, wc.countCharacters(is));
 			} else {
@@ -57,7 +57,7 @@ class WordCountTest {
 
 	@Test
 	void countBytes() {
-		try (var is = getClass().getClassLoader().getResourceAsStream("test.txt")) {
+		try (var is = getClass().getClassLoader().getResourceAsStream("wc/test.txt")) {
 			if (is != null) {
 				assertEquals(342190, wc.countBytes(is));
 			} else {
@@ -70,7 +70,7 @@ class WordCountTest {
 
 	@Test
 	void countAll() {
-		try (var is = getClass().getClassLoader().getResourceAsStream("test.txt")) {
+		try (var is = getClass().getClassLoader().getResourceAsStream("wc/test.txt")) {
 			if (is != null) {
 				var stats = wc.countAll(is);
 				assertEquals(58164, stats.words());
