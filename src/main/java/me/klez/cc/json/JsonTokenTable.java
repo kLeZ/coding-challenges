@@ -17,13 +17,7 @@
 
 package me.klez.cc.json;
 
-import lombok.NonNull;
+import java.util.SequencedCollection;
 
-import java.io.InputStream;
-
-/// A Java implementation of a JSON parser
-public interface JsonParser {
-	/// Parse a JSON document
-	@NonNull
-	JsonNode parse(@NonNull final InputStream input) throws JsonException;
+record JsonTokenTable(SequencedCollection<JsonToken> tokens) {
 }

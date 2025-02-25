@@ -17,13 +17,23 @@
 
 package me.klez.cc.json;
 
-import lombok.NonNull;
+public class JsonSyntacticException extends JsonException {
+	public JsonSyntacticException(String message) {
+		super(message);
+	}
 
-import java.io.InputStream;
+	public JsonSyntacticException(String message, Throwable cause) {
+		super(message, cause);
+	}
 
-/// A Java implementation of a JSON parser
-public interface JsonParser {
-	/// Parse a JSON document
-	@NonNull
-	JsonNode parse(@NonNull final InputStream input) throws JsonException;
+	public JsonSyntacticException(Throwable cause) {
+		super(cause);
+	}
+
+	public JsonSyntacticException() {
+	}
+
+	public JsonSyntacticException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+		super(message, cause, enableSuppression, writableStackTrace);
+	}
 }

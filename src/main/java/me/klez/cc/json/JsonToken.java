@@ -17,13 +17,33 @@
 
 package me.klez.cc.json;
 
-import lombok.NonNull;
+sealed interface JsonToken {
+	sealed interface IdentifierToken extends JsonToken {
+		record NumberToken(String value) implements IdentifierToken {
+		}
 
-import java.io.InputStream;
+		record StringToken(String value) implements IdentifierToken {
+		}
 
-/// A Java implementation of a JSON parser
-public interface JsonParser {
-	/// Parse a JSON document
-	@NonNull
-	JsonNode parse(@NonNull final InputStream input) throws JsonException;
+		record NullToken() implements IdentifierToken {
+		}
+
+		record TrueToken() implements IdentifierToken {
+		}
+
+		record FalseToken() implements IdentifierToken {
+		}
+	}
+
+	record BraceToken(boolean open) implements JsonToken {
+	}
+
+	record BracketToken(boolean open) implements JsonToken {
+	}
+
+	record CommaToken() implements JsonToken {
+	}
+
+	record ColonToken() implements JsonToken {
+	}
 }

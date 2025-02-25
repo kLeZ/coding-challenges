@@ -19,11 +19,7 @@ package me.klez.cc.json;
 
 import lombok.NonNull;
 
-import java.io.InputStream;
-
-/// A Java implementation of a JSON parser
-public interface JsonParser {
-	/// Parse a JSON document
+interface JsonSyntacticAnalyzer {
 	@NonNull
-	JsonNode parse(@NonNull final InputStream input) throws JsonException;
+	JsonNode parse(@NonNull final JsonTokenTable jsonTokenTable) throws JsonSyntacticException;
 }
