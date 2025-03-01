@@ -17,23 +17,49 @@
 
 package me.klez.cc.json;
 
+/// An exception thrown by the JSON parser
 public class JsonException extends Exception {
+	/// Creates a new JSON exception
+	///
+	/// @param message
+	/// 		The exception message
 	public JsonException(String message) {
 		super(message);
 	}
 
+	/// Creates a new JSON exception
+	///
+	/// @param message
+	/// 		The exception message
+	/// @param cause
+	/// 		The exception cause
 	public JsonException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
+	/// Creates a new JSON exception
+	///
+	/// @param cause
+	/// 		The exception cause
 	public JsonException(Throwable cause) {
 		super(cause);
 	}
 
+	/// Creates a new JSON exception
 	public JsonException() {
 		super();
 	}
 
+	/// Creates a new JSON exception
+	///
+	/// @param message
+	/// 		The exception message
+	/// @param cause
+	/// 		The exception cause
+	/// @param enableSuppression
+	/// 		Whether suppression is enabled or disabled
+	/// @param writableStackTrace
+	/// 		Whether the stack trace should be writable
 	public JsonException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
 		super(message, cause, enableSuppression, writableStackTrace);
 	}

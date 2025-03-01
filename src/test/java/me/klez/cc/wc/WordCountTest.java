@@ -1,7 +1,6 @@
 package me.klez.cc.wc;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -9,12 +8,7 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class WordCountTest {
-	private WordCount wc;
-
-	@BeforeEach
-	void setUp() {
-		wc = new WordCountImpl();
-	}
+	private final WordCount wc = new WordCountImpl();
 
 	@Test
 	void countWords() {

@@ -16,6 +16,6 @@
  */
 
 /// This package contains the source code for the Coding Challenges I'm trying to implement in modern java to keep
-/// learning and to keep me exercised.
-/// Here you can find the main programs that use the source code in the challenge packages.
+/// learning and to keep me exercised. Here you can find the
+/// main programs that use the source code in the challenge packages.
 package me.klez.cc;

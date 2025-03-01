@@ -19,9 +19,9 @@ package me.klez.cc.json;
 
 import lombok.NonNull;
 
-import java.io.Reader;
+import java.io.InputStream;
 
 interface JsonLexicalAnalyzer {
 	@NonNull
-	JsonTokenTable analyze(@NonNull final Reader reader) throws JsonLexicalException;
+	JsonTokenTable analyze(@NonNull final InputStream input) throws JsonLexicalException;
 }

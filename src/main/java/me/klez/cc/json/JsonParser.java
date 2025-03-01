@@ -25,5 +25,5 @@ import java.io.InputStream;
 public interface JsonParser {
 	/// Parse a JSON document
 	@NonNull
-	JsonNode parse(@NonNull final InputStream input) throws JsonException;
+	JsonValue parse(@NonNull final InputStream input) throws JsonException;
 }

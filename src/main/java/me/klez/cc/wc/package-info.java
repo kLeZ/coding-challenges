@@ -17,6 +17,6 @@
 
 /// Challenge #1: Build your own wc tool
 ///
-/// It's man page concisely describes the functional requirements for wc.
-/// [Coding Challenge #1 - WC](https://codingchallenges.fyi/challenges/challenge-wc/)
+/// It's man page concisely describes the functional requirements for wc. [Coding Challenge #1 -
+/// WC](https://codingchallenges.fyi/challenges/challenge-wc/)
 package me.klez.cc.wc;

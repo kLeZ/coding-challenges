@@ -19,15 +19,14 @@ package me.klez.cc.json;
 
 import lombok.NonNull;
 
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 
+/// A Java implementation of a JSON parser
 public class JsonParserImpl implements JsonParser {
 	private final JsonLexicalAnalyzer lexer;
 	private final JsonSyntacticAnalyzer parser;
 
+	/// Constructor
 	public JsonParserImpl() {
 		this.lexer = new JsonLexicalAnalyzerImpl();
 		this.parser = new JsonSyntacticAnalyzerImpl();
@@ -36,11 +35,7 @@ public class JsonParserImpl implements JsonParser {
 	/// Parse a JSON document
 	@NonNull
 	@Override
-	public JsonNode parse(@NonNull final InputStream input) throws JsonException {
-		try (var reader = new BufferedReader(new InputStreamReader(input))) {
-			return parser.parse(lexer.analyze(reader));
-		} catch (IOException e) {
-			throw new JsonException(e);
-		}
+	public JsonValue parse(@NonNull final InputStream input) throws JsonException {
+		return parser.parse(lexer.analyze(input));
 	}
 }

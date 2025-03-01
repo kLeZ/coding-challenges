@@ -20,4 +20,10 @@ package me.klez.cc.json;
 import java.util.SequencedCollection;
 
 record JsonTokenTable(SequencedCollection<JsonToken> tokens) {
+	public JsonToken nextToken() throws JsonLexicalException {
+		if (!tokens.isEmpty()) {
+			return tokens.removeFirst();
+		}
+		return null;
+	}
 }

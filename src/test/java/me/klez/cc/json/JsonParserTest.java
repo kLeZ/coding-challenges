@@ -17,27 +17,32 @@
 
 package me.klez.cc.json;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.assertj.core.api.Assertions;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
+import static net.javacrumbs.jsonunit.assertj.JsonAssertions.assertThatJson;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
 class JsonParserTest {
-	private JsonParser reader;
+	private final JsonParser parser = new JsonParserImpl();
 
-	@BeforeEach
-	void setUp() {
-		reader = new JsonParserImpl();
-	}
-
-	@Test
-	void parseStep1Valid() {
-		try (var is = getClass().getClassLoader().getResourceAsStream("json/step1/valid.json")) {
+	@ParameterizedTest
+	@CsvFileSource(resources = "valid-sources.csv", numLinesToSkip = 1)
+	void parseValid(String filepath) {
+		System.out.printf("Parsing %s%n", filepath);
+		try (var is = getClass().getClassLoader().getResourceAsStream(filepath)) {
 			if (is != null) {
-				var node = reader.parse(is);
-				System.out.println(node);
-				Assertions.assertNotNull(node);
+				var bais = new ByteArrayInputStream(is.readAllBytes());
+				var node = parser.parse(bais);
+				assertThat(node).isNotNull();
+				bais.reset();
+				String fileContents = new String(bais.readAllBytes());
+				assertThatJson(node.toJson()).isEqualTo(fileContents);
 			} else {
 				Assertions.fail("File not found");
 			}
@@ -46,15 +51,18 @@ class JsonParserTest {
 		}
 	}
 
-	@Test
-	void parseStep1Invalid() {
-		try (var is = getClass().getClassLoader().getResourceAsStream("json/step1/invalid.json")) {
+	@ParameterizedTest
+	@CsvFileSource(resources = "invalid-sources.csv", numLinesToSkip = 1)
+	void parseInvalid(String filepath, String exceptionType) {
+		System.out.printf("Parsing %s trying to catch exception of type %s%n", filepath, exceptionType);
+		try (var is = getClass().getClassLoader().getResourceAsStream(filepath)) {
 			if (is != null) {
-				Assertions.assertThrowsExactly(JsonLexicalException.class, () -> reader.parse(is));
+				assertThatThrownBy(() -> parser.parse(is)).isInstanceOf(Class.forName(exceptionType)
+				                                                             .asSubclass(JsonException.class));
 			} else {
 				Assertions.fail("File not found");
 			}
-		} catch (IOException e) {
+		} catch (IOException | ClassNotFoundException e) {
 			Assertions.fail(e);
 		}
 	}

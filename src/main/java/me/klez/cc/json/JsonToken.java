@@ -19,7 +19,7 @@ package me.klez.cc.json;
 
 sealed interface JsonToken {
 	sealed interface IdentifierToken extends JsonToken {
-		record NumberToken(String value) implements IdentifierToken {
+		record NumberToken(double value) implements IdentifierToken {
 		}
 
 		record StringToken(String value) implements IdentifierToken {
@@ -35,15 +35,24 @@ sealed interface JsonToken {
 		}
 	}
 
-	record BraceToken(boolean open) implements JsonToken {
+	record LeftBraceToken() implements JsonToken {
 	}
 
-	record BracketToken(boolean open) implements JsonToken {
+	record RightBraceToken() implements JsonToken {
+	}
+
+	record LeftBracketToken() implements JsonToken {
+	}
+
+	record RightBracketToken() implements JsonToken {
 	}
 
 	record CommaToken() implements JsonToken {
 	}
 
 	record ColonToken() implements JsonToken {
+	}
+
+	record EndOfFileToken() implements JsonToken {
 	}
 }

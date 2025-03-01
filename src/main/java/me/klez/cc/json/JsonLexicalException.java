@@ -17,22 +17,49 @@
 
 package me.klez.cc.json;
 
+/// An exception thrown by the JSON lexical analyzer
 public class JsonLexicalException extends JsonException {
+	/// Creates a new lexical exception
+	///
+	/// @param message
+	/// 		the exception message
 	public JsonLexicalException(String message) {
 		super(message);
 	}
 
+	/// Creates a new lexical exception
+	///
+	/// @param message
+	/// 		the exception message
+	/// @param cause
+	/// 		the exception cause
 	public JsonLexicalException(String message, Throwable cause) {
 		super(message, cause);
 	}
 
+	/// Creates a new lexical exception
+	///
+	/// @param cause
+	/// 		the exception cause
 	public JsonLexicalException(Throwable cause) {
 		super(cause);
 	}
 
+	/// Creates a new lexical exception
 	public JsonLexicalException() {
+		super();
 	}
 
+	/// Creates a new lexical exception
+	///
+	/// @param message
+	/// 		the exception message
+	/// @param cause
+	/// 		the exception cause
+	/// @param enableSuppression
+	/// 		whether suppression is enabled or disabled
+	/// @param writableStackTrace
+	/// 		whether the stack trace should be writable
 	public JsonLexicalException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
 		super(message, cause, enableSuppression, writableStackTrace);
 	}

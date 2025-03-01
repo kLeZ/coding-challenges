@@ -1,0 +1,6 @@
+filepath,exceptionType
+json/step1/invalid.json,me.klez.cc.json.JsonLexicalException
+json/step2/invalid.json,me.klez.cc.json.JsonSyntacticException
+json/step2/invalid2.json,me.klez.cc.json.JsonLexicalException
+json/step3/invalid.json,me.klez.cc.json.JsonLexicalException
+json/step4/invalid.json,me.klez.cc.json.JsonLexicalException

@@ -21,5 +21,5 @@ import lombok.NonNull;
 
 interface JsonSyntacticAnalyzer {
 	@NonNull
-	JsonNode parse(@NonNull final JsonTokenTable jsonTokenTable) throws JsonSyntacticException;
+	JsonValue parse(@NonNull final JsonTokenTable jsonTokenTable) throws JsonSyntacticException;
 }
