@@ -36,6 +36,9 @@ class JsonSyntacticAnalyzerImpl implements JsonSyntacticAnalyzer {
 	@Override
 	public JsonValue parse(@NonNull final JsonTokenTable jsonTokenTable) throws JsonSyntacticException {
 		init(jsonTokenTable);
+		if (!(currentToken instanceof LeftBraceToken) && !(currentToken instanceof LeftBracketToken)) {
+			throw new JsonSyntacticException("A JSON payload should be an object or array");
+		}
 		var result = parseValue();
 		if (!(currentToken instanceof EndOfFileToken)) {
 			throw new JsonSyntacticException("Expected end of input, found additional content");

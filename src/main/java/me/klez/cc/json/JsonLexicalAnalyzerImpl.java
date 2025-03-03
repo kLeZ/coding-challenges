@@ -190,6 +190,8 @@ class JsonLexicalAnalyzerImpl implements JsonLexicalAnalyzer {
 		}
 
 		try {
+			if (sb.charAt(0) == '0' && sb.length() > 1 && sb.charAt(1) != '.')
+			    throw new JsonLexicalException("Numbers cannot have leading zeroes");
 			double value = Double.parseDouble(sb.toString());
 			return new NumberToken(value);
 		} catch (NumberFormatException e) {
