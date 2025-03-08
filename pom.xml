@@ -181,8 +181,11 @@
 				</executions>
 				<configuration>
 					<hooks>
-						<pre-commit>./mvnw -B formatter:validate</pre-commit>
-						<pre-push>./mvnw -B test</pre-push>
+						<pre-commit>
+							./mvnw -B formatter:format
+							git add -A
+						</pre-commit>
+						<pre-push>./mvnw -B formatter:validate</pre-push>
 					</hooks>
 				</configuration>
 			</plugin>
